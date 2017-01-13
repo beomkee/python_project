@@ -10,7 +10,7 @@ div#header{
 	height: 30px;
 	width: 100%;
 	display: table;
-	background: orange;
+	background: blue;
 }
 
 div#menu{
@@ -22,7 +22,7 @@ div#menu{
 	display: table;
 	table-layout: fixed;
 	border-spacing: 40px 0px;
-	background: #ffa;
+	background: green;
 	font-size: 8px;
 
 }
@@ -30,6 +30,14 @@ div#menu{
 div#content{
 	position: absolute;
 	top: 70px;
+	left: 50px;
+	right: 50px;
+
+}
+
+div#list{
+	position: absolute;
+	top: 170px;
 	left: 50px;
 	right: 50px;
 

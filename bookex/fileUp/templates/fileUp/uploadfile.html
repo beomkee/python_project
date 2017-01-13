@@ -3,7 +3,7 @@
 {%block content%}
 <table><tr><td height=30></tr></td></table>
 <div id = "content">
-<table border=0 >
+<table>
 	<tr><td colspan="2">
 	<h1>&nbsp;&nbsp;File Up Load</h1>
 	</tr></td>
@@ -20,29 +20,30 @@
 		<p>Description:</p></td><td>{{form.description}}</td>
         </tr>	
         <tr><td colspan="2">
-        <button style = "border:0px;background-color:#4285F4;  height:35px; width:80%; margin-top:2%;" type = "submit" value = "submit" ><b>Upload</b></button>
+        <button style = "border:0px;background-color:#4285F4;  height:35px; width:80%; margin-top:2%;" type = "submit" value = "submit" ><strong>Upload</strong></button>
 		</tr></td>
 	</form>
 </table>
 
 <br/>
-	{% if documents %}
-		<ul><table border =1>
-		{%for file in documents %}
+
+	{% if files %}
+		<ul><table>
+		{%for file in files %}
 			<tr><td>
 			<li>
-			<h2>{{file.title}}</h2>
-			{{file.modify_date | date:"N d, Y"}}
-			<p>{{file.description}}</p></li>
+			<h2>{{file.docfile.title}}</h2>
+			{{file.docfile.modify_date | date:"N d, Y"}}
+			<p>{{file.docfile.description}}</p></li>
 			</td></tr>
-		{%endfor%}
-		</table></ul>
+		{%endfor%}</table>
+		</ul>
 	{% else %}
 		<p> No Files. </p>
 	{%endif%}
 </div>
-{%endblock%}
 
+{% endblock %}
 
 
 
