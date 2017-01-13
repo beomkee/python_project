@@ -8,7 +8,7 @@ from django.core.urlresolvers import reverse
 
 class UploadFileModel(models.Model):
 	title = models.CharField('title', default='', max_length=50)
-	docfile = models.FileField(upload_to ='doucuments')
+	docfile = models.FileField(upload_to ='documents')
 	description = models.CharField('descrption', max_length=100, blank=True)
 	create_date = models.DateTimeField('Create Date',auto_now_add=True)
 	modify_date = models.DateTimeField('Modify Date',auto_now=True)
