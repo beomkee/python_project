@@ -1,0 +1,43 @@
+{% extends "base.html"%}
+
+{% block title %}Example Hompage{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}{% static "css/home.css" %}{% endblock %}
+
+{% block content %}
+<div id="content_home">
+	<div id="homeing">
+		<a href="/"><img src="{%static 'img/hansol_logo.jpg' %}" style="height:256px;"/></a>
+	<h4 style="margin:0;">This is Hansol's Logo.</h4>
+	</div>
+
+	<hr style="margin: 5px 0;">
+
+	<h2>Select Aplication</h2>
+
+	<table id="applist">
+
+	<tr>
+	<td><b><i><a href="{%url 'bookmark:index' %}">Bookmark</a></i></b></td>
+	<td>you can write your own post</td>
+	</tr>
+	
+	<tr>
+	<td><b><i><a href="{%url 'blog:index' %}">Blog</a></i></td></b>
+	<td>you can write your own post</td>
+	</tr>
+
+	<tr>
+	<td><b><i><a href="{% url 'upfile:up'%}">FileUpLoad</a></i></td></b>
+	<td>you can write your own post</td>
+	</tr>
+	</table>
+</div>
+{%endblock content%}
+
+{%block footer%}
+<div id="footer">
+	&copy; 인턴사원 박성범 2017	
+</div>
+{%endblock footer%}

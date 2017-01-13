@@ -1,0 +1,73 @@
+{% extends "base.html"%}
+
+{%block content%}
+<table><tr><td height=30></tr></td></table>
+<div class = "upfile">
+<table border=0 >
+	<tr><td colspan="2">
+	<h1>&nbsp;&nbsp;File Up Load</h1>
+	</tr></td>
+	
+ 	<form action="." enctype = "multipart/form-data" 
+          method = "POST" novalidate>{% csrf_token %}
+      	<tr><td width = 15>
+		<center><p>Title :</p></center></td><td>{{form.title}}</td>
+		</tr>
+        <tr><td width = 15>
+		<center><p>File :</p></center></td><td>{{form.docfile}}</td>
+        </tr>	
+		<tr><td width = 15>
+		<p>Description:</p></td><td>{{form.description}}</td>
+        </tr>	
+        <tr><td colspan="2">
+        <button style = "border:0px;background-color:#4285F4;  height:35px; width:80%; margin-top:2%;" type = "submit" value = "submit" ><strong>Upload</strong></button>
+		</tr></td>
+	</form>
+</table>
+</div>
+<br/>
+{%endblock%}
+
+{% block list %}
+<div class="list">
+
+	{% if documents %}
+		<ul><table border =1>
+		{%for document in documents %}
+			<tr><td>
+			<li>
+			<h2>{{document.title}}</h2>
+			{{document.modify_date | date:"N d, Y"}}
+			<p>{{document.description}}</p></li>
+			</td></tr>
+		{%endfor%}
+		</table></ul>
+	{% else %}
+		<p> No Files. </p>
+	{%endif%}
+</div>
+{%endblock%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
