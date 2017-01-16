@@ -27,9 +27,9 @@ class Fileupload(CreateView):
 		else:
 			form = UploadFileForm()
 
-		files = docfile.object.all()
+		documents = docfile.object.all()
 
-		return render(request, 'uploadfile.html', {'files':files, 'form': form})
+		return render(request, 'uploadfile.html', {'documents':documents, 'form': form})
 
 class FileDV(TemplateView):
 	

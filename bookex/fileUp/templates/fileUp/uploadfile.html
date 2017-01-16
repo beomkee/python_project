@@ -27,14 +27,14 @@
 
 <br/>
 
-	{% if files %}
+	{% if documents %}
 		<ul><table>
-		{%for file in files %}
+		{%for document in documents %}
 			<tr><td>
 			<li>
-			<h2>{{file.docfile.title}}</h2>
-			{{file.docfile.modify_date | date:"N d, Y"}}
-			<p>{{file.docfile.description}}</p></li>
+			<h2>{{document.docfile.title}}</h2>
+			{{document.docfile.modify_date | date:"N d, Y"}}
+			<p>{{document.docfile.description}}</p></li>
 			</td></tr>
 		{%endfor%}</table>
 		</ul>
