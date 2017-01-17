@@ -15,13 +15,13 @@
 	{% if  user.is_active %}
     <h4 class="welcome">Welcome,
 		<strong>{% firstof user.get_short_name user.get_username %}</strong>/
-		<a href = "	{% url 'login:password_change' %}">Change Password</a>/
-		<a href = " {% url 'login:logout' %}">Logout&nbsp;&nbsp;</a>
+		<a href = "	{% url 'password_change' %}">Change Password</a>/
+		<a href = " {% url 'logout' %}">Logout&nbsp;&nbsp;</a>
 	</h4>
 	{% else %}
 	 <h4 class="welcome">Welcome, Anonymous
-		<a href = "	{% url 'login:login' %}">Login</a>/
-		<a href = " {% url 'login:register' %}">Register&nbsp;&nbsp;</a>
+		<a href = "	{% url 'login' %}">Login</a>/
+		<a href = " {% url 'register' %}">Register&nbsp;&nbsp;</a>
 	</h4>
 	{% endif %}
 </div>
