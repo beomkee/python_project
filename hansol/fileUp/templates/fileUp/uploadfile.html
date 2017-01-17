@@ -27,20 +27,7 @@
 
 <br/>
 
-	{% if documents %}
-		<ul><table>
-		{%for document in documents %}
-			<tr><td>
-			<li>
-			<h2>{{document.docfile.title}}</h2>
-			{{document.docfile.modify_date | date:"N d, Y"}}
-			<p>{{document.docfile.description}}</p></li>
-			</td></tr>
-		{%endfor%}</table>
-		</ul>
-	{% else %}
-		<p> No Files. </p>
-	{%endif%}
+	<a href="file_list">File List</a>
 </div>
 
 {% endblock %}

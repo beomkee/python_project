@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-   <title>{% block title%}Django Web Progamming{%endblock%}</title>
+   <title>{% block title%}Hansol Textmining Homepage{%endblock%}</title>
 
     {% load staticfiles%}
     <link rel="stylesheet" type="text/css" href="{%static 'css/base.css'%}"/>
@@ -13,16 +13,13 @@
 
     <h2 class="maintitle">Example Hompage Python TextMining HANSOL</h2>
 
-    <h4 class="welcome">Welcome 성범</h4>
+    <h4 class="welcome">Welcome 성범&nbsp;&nbsp;  </h4>
 </div>
 
 <div id="menu">
     <li><a href="{%url 'home' %}">Home</a> </li>
-    <li><a href="{%url 'bookmark:index' %}">Bookmark</a> </li>
-    <li><a href="{%url 'blog:index' %}">Blog</a> </li>
-    <li><a href="{%url 'upfile:up'%}">FileUpLoad</a> </li>
-    <li><a href="{%url 'blog:post_archive' %}">Archive</a> </li>
-    <li><a href="{% url 'blog:search' %}">Search</a> </li>
+    <li><a href="#">Archive</a> </li>
+    <li><a href="#">Search</a> </li>
     <li><a href="{%url 'admin:index' %}">Admin</a> </li>
 </div>
 

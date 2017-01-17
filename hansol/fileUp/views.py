@@ -2,15 +2,16 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import UploadFileForm
 from fileUp.models import *
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import ListView, CreateView
 
 # Create your views here.
+
 class Fileupload(CreateView):
 
 	model = UploadFileModel
 	fields = ['title', 'docfile', 'description']
 	template_name = 'fileUp/uploadfile.html'
-	context_object_name = 'files'
+	
 
 	def upload_file(request):
 		saved = False
@@ -31,10 +32,10 @@ class Fileupload(CreateView):
 
 		return render(request, 'uploadfile.html', {'documents':documents, 'form': form})
 
-class FileDV(TemplateView):
+class FileLV(ListView):
 	
 	model = UploadFileModel
-	template_name = 'fileUp/file_detail.html'
+	template_name = 'fileUp/file_list.html'
 
 
 
