@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{%block title%}Register_Done{%endblock%}
+
+{% load staticfiles %}
+{% block extrastyle%}{% static "css/forms.css"%}{%endblock%}
+
+{%block content%}
+<div id = "content">
+
+	<h1>Registration Completed</h1>
+
+	<a href ="{% url 'login' %}">Login in again</a>
+</div>
+{% endblock %}

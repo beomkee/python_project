@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{%block title%}Register{%endblock%}
+
+{% load staticfiles %}
+{% block extrastyle%}{% static "css/forms.css"%}{%endblock%}
+
+{%block content%}
+<div id = "content">
+
+	<h1>Registration</h1>
+	
+	<form method ="post" action=".">{%csrf_token%}
+	
+	{% if form.errors%}
+	<p class = "errornote">Wrong</p>
+	{% endif %}
+
+	<p>enter username</p>
+	
+	<field class="aligned">
+
+		<div class="form-row">
+			{{form.username.label_tag}}{{form.username}}
+		</div>
+		<div class="form-row">
+			{{form.password1.label_tag}}{{form.password1}}
+		</div>
+		<div class="form-row">
+			{{form.password2.label_tag}}{{form.password2}}
+		</div>
+	</fieldset>
+
+	<div class="sibmit-row">
+		<input type="submit" value="Resister"/>
+	</div>
+
+		<script type="text/javascript">document.getElementById('id_username').focus();
+	</script>
+	</form>
+</div>
+{% endblock %}
+
+
