@@ -6,6 +6,7 @@ from django.core.urlresolvers import reverse_lazy
 
 class HomeView(TemplateView):
     template_name = 'home.html'
+	
 
 class UserCreateView(CreateView):
 	template_name = 'registration/register.html'

@@ -25,7 +25,7 @@ SECRET_KEY = 'qodh27elb-#nips)j+lvgcb6_#!2@bkmvii@53hz3rgd8v++0!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
  
-ALLOWED_HOSTS = ['192.168.20.130', '172.30.2.191']
+ALLOWED_HOSTS = ['192.168.20.132', '172.30.2.191']
 
 
 # Application definition
@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'bookmark',
     'blog',
 	'fileUp',
-	
+	'profiles',
+	'grape',
 
 ]
 
@@ -132,5 +133,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #LOGOUT_URL = '/accounts/logout/'
 LOGIN_REDIRECT_URL = '/'
 
+AUTH_USER_MODEL = 'auth.User'
 
 

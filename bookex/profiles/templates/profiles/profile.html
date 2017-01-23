@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{%block title%}profile{%endblock%}
+
+
+{%block content%}
+<table><tr><td height=30></tr></td></table>
+
+<ul>
+<table><tr><td colspan ="3"><h2>{{current_user}}'s Document List</h2></td></tr>
+	<tr>
+		<td><b>Title</b></td>
+		<td><b>Description</b></td>
+		<td><b>Modify Date</b></td>
+	</tr>
+	<tr><td></td></tr>
+	{% for document in documents %}
+	<tr>
+		<td><li>{{document.title}}
+		<td>{{document.description}} </td>
+		<td>{{document.modify_date}}</td></li></tr>
+	{%empty%}
+	<tr>
+		<td><li>no document</li></td><tr><td>
+	{% endfor %}
+	<tr><td><br/><a href ="javascript:history.back()">Go Back</a></td>
+		<td colspan = "2"><h4><center><a href = "{% url 'home' %}">Go Home</a></center></h4></td>
+	</tr>
+</table>
+</ul>
+
+
+{%endblock%}
+

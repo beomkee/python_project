@@ -1,55 +1,41 @@
 {% extends "base.html"%}
 
+{% load staticfiles %}
+{% block extrastyle %}{% static "css/forms.css" %}{%endblock %}
+
 {%block content%}
 <table><tr><td height=30></tr></td></table>
 <div id = "content">
-<table>
+<table align='center'>
 	<tr><td colspan="2">
-	<h1>&nbsp;&nbsp;File Up Load</h1>
+	<center><h1>분석 주제 등록</h1></center>
 	</tr></td>
 	
  	<form action="." enctype = "multipart/form-data" 
           method = "POST" novalidate>{% csrf_token %}
-      	<tr><td width = 15>
-		<center><p>Title :</p></center></td><td>{{form.title}}</td>
-		</tr>
-        <tr><td width = 15>
-		<center><p>File :</p></center></td><td>{{form.docfile}}</td>
-        </tr>	
-		<tr><td width = 15>
-		<p>Description:</p></td><td>{{form.description}}</td>
-        </tr>	
-        <tr><td colspan="2">
-        <button style = "border:0px;background-color:#4285F4;  height:35px; width:80%; margin-top:2%;" type = "submit" value = "submit" ><strong>Upload</strong></button>
-		</tr></td>
+    <tr>
+		<td width = "75px"><center><p>제목 :</p></center></td>
+		<td>{{form.title}}</td>
+	</tr>
+    <tr>
+		<td width = "75px"><center><p>분석내용 :</p></center></td>
+		<td>{{form.docfile}}</td>
+	</tr>	
+	<tr>
+		<td width = "75px"><p>분석파일 :</p></td>
+		<td>{{form.description}}</td>
+    </tr>	
+    <tr>
+		<td colspan="2"><button style = "border:0px;background-color:#4285F4;  height:35px; width:100%; margin-top:2%;" type = "submit" value = "submit" ><strong>등록</strong></button></td>
+	</tr>
 	</form>
 </table>
 
 <br/>
 
-	<a href="file_list">File List</a>
 </div>
 
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

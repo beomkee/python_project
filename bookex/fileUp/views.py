@@ -1,41 +1,45 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.shortcuts import render,get_object_or_404, redirect
 from .forms import UploadFileForm
+from .models import UploadFileModel
 from fileUp.models import *
-from django.views.generic import ListView, CreateView
-
+from django.contrib.auth.decorators import login_required
+from django.views.generic.edit import UpdateView
+from django.core.urlresolvers import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
-class Fileupload(CreateView):
+@login_required
+def upload_file(request):
+		
+	if request.method == "GET":
+		form = UploadFileForm()
 
-	model = UploadFileModel
-	fields = ['title', 'docfile', 'description']
-	template_name = 'fileUp/uploadfile.html'
+	elif request.method == 'POST':
+		form = UploadFileForm(request.POST, request.FILES)
+
+		if form.is_valid():
+			upload_file = form.save(commit=False)
+			upload_file.user = request.user
+			upload_file.save()
+
+			return redirect(upload_file.get_absolute_url())
+		
+	return render(request, 'fileUp/uploadfile.html', {'form': form},)
+
+def file_detail(request, doc_id):
+
+	document = get_object_or_404(UploadFileModel, pk=doc_id)
 	
+	return render(request, 'fileUp/file_detail.html', {'document':document},)
 
-	def upload_file(request):
-		saved = False
+def file_upload(request):
+
+	document = get_object_or_404(UploadFileModel)
 	
-		if requast.method == 'POST':
-			form = UploadFileForm(request.POST, request.FILES)
-			if form.is_valid():
-				docfile = UploadFielModel()
-				form.save()
-				saved = True
+	return render(request, 'fileUp/upload.html', {'document':document},)
 
-				return HttpResponseRedirect("/upload/{}/",format(document.title))
-	
-		else:
-			form = UploadFileForm()
 
-		documents = docfile.object.all()
 
-		return render(request, 'uploadfile.html', {'documents':documents, 'form': form})
-
-class FileLV(ListView):
-	
-	model = UploadFileModel
-	template_name = 'fileUp/file_list.html'
 
 
 

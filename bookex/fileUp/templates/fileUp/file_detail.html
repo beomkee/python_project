@@ -1,0 +1,40 @@
+{% extends "base.html"%}
+
+{%block content%}
+<table><tr><td height=30></tr></td></table>
+<table align='center' >
+	<tr>
+		<td colspan="2"><center><h1>분석 방법 선택</h1></center></td>
+	</tr>
+	<tr>
+		<td width = "75px"><center><p><b>제목 :</b></p></td>
+		<td><br/>{{document.title}}</td>
+	</tr>
+    <tr>
+		<td width = "75px"><p><b>분석내용 :</b></p></td>
+		<td><br/>{{document.description}}</td>
+    </tr>	
+	<tr>
+		<td width = "75px"><p><b>분석파일 :</b></p></td>
+		<td><br/>{{document.docfile}}</td>
+    </tr>
+	<tr>
+		<td  width = "75px"><br/><b>분석선택 :</b></td>
+		<td><br/><input type="radio" name="choice" value={{choice.id}}>WordCloud
+			<input type="radio" name="choice" value="{{choice.id}}">Topic</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"><h3>
+
+		<a href ="{% url 'python_function:graph' %}">&nbsp;&nbsp;&nbsp;분석실행&nbsp;&nbsp;&nbsp;&nbsp;</a>|
+		<a href = "#">&nbsp;&nbsp;&nbsp;&nbsp;분석내용수정&nbsp;&nbsp;&nbsp;</a></h3>
+		</td>
+	</tr>
+	</table>
+<br/>
+	
+{%endblock%}
+
+
+
+

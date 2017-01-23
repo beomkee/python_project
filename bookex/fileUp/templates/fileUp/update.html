@@ -1,0 +1,42 @@
+{% extends "base.html"%}
+
+{% load staticfiles %}
+{% block extrastyle %}{% static "css/forms.css" %}{%endblock %}
+
+{%block content%}
+<table><tr><td height=30></tr></td></table>
+<div id = "content">
+<table align='center'>
+	<tr><td colspan="2">
+	<center><h1>분석 주제 재등록</h1></center>
+	</tr></td>
+	
+ 	<form action="." enctype = "multipart/form-data" 
+          method = "POST" novalidate>{% csrf_token %}
+    <tr>
+		<td width = "75px"><center><p><b>제목 :</b></p></td>
+		<td><br/>{{document.title}}</td>
+	</tr>
+    <tr>
+		<td width = "75px"><p><b>분석내용 :</b></p></td>
+		<td><br/>{{document.description}}</td>
+    </tr>	
+	<tr>
+		<td width = "75px"><p><b>분석파일 :</b></p></td>
+		<td><br/>{{document.docfile}}</td>
+    </tr>	
+    <tr>
+		<td colspan="2"><button style = "border:0px;background-color:#4285F4;  height:35px; width:100%; margin-top:2%;" type = "submit" value = "update" ><strong>수정</strong></button></td>
+	</tr>
+	</form>
+</table>
+
+<br/>
+
+</div>
+
+{% endblock %}
+
+
+
+

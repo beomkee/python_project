@@ -8,31 +8,22 @@
 {% block content %}
 <div id="content_home">
 	<div id="homeing">
-		<a href="/"><img src="{%static 'img/hansol_logo.jpg' %}" style="height:256px;"/></a>
-	<h4 style="margin:0;">This is Hansol's Logo.</h4>
-	</div>
+		<h2>Select Aplication</h2>
 
-	<hr style="margin: 5px 0;">
-
-	<h2>Select Aplication</h2>
-
-	<table id="applist">
-
-	<tr>
-	<td><b><i><a href="#">Bookmark</a></i></b></td>
-	<td>you can write your own post</td>
-	</tr>
+	<table id="applist" align='center'>
 	
 	<tr>
-	<td><b><i><a href="#">Blog</a></i></td></b>
-	<td>you can write your own post</td>
+		<td><b><i><a href="{% url 'upfile:upload_file'%}">분석자료업로드</a></i></td></b>
+		<td>새로 분석할 자료 업로드</td>
 	</tr>
-
 	<tr>
-	<td><b><i><a href="{% url 'upfile:up'%}">FileUpLoad</a></i></td></b>
-	<td>you can write your own post</td>
+		<td><b><i><a href="user/admin">분석목록확인</a></i></b></td>
+		<td>지금까지 분석했던 자료 확인</td>
 	</tr>
+	
 	</table>
+	</div>
+	
 </div>
 {%endblock content%}
 

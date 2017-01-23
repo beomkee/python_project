@@ -5,7 +5,7 @@ from fileUp.models import *
 
 class UploadFileModelAdmin(admin.ModelAdmin):
 	model = UploadFileModel
-	list_display = ('title','description','modify_date')
+	list_display = ('title','id','description','modify_date')
 	list_filter = ('modify_date',)
 	search_fields = ('title','description')
 
